@@ -1,8 +1,9 @@
 import { Providers } from '@/redux/provider'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import Menu from './Menu'
+import Menu from '../layout/component/Menu'
 import './globals.css'
+import Sidebar from '@/layout/component/Sidebar'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -18,8 +19,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers><Menu />{children}</Providers>
+        <Providers><Menu />
+          <div className='mx-auto w-full bg-white bg-gradient-to-r p-2 dark:bg-gray-900 sm:p-6'>
+
+            <Sidebar />{children}
+          </div>
+        </Providers>
       </body>
-    </html>
+    </html >
   )
 }

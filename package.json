@@ -18,6 +18,7 @@
     "@testing-library/user-event": "^14.5.1",
     "autoprefixer": "^10.4.16",
     "flowbite": "^1.8.1",
+    "mdx": "^0.3.1",
     "next": "13.5.5",
     "postcss": "^8.4.31",
     "react": "^18",
@@ -33,7 +34,9 @@
   },
   "devDependencies": {
     "@types/jest": "^29.5.6",
+    "@types/mdx": "^2.0.9",
     "@types/node": "^20",
+    "@types/prismjs": "^1.26.2",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
