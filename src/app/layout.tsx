@@ -20,9 +20,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers><Menu />
-          <div className='mx-auto w-full bg-white bg-gradient-to-r p-2 dark:bg-gray-900 sm:p-6'>
 
-            <Sidebar />{children}
+          <div className='flex justify-between px-4 mx-auto max-w-8xl'>
+            <div className='hidden mb-6 xl:block lg:w-80'>
+              <Sidebar />
+            </div>
+            <div className='w-full mx-auto'>
+              {children}
+            </div>
           </div>
         </Providers>
       </body>
