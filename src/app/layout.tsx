@@ -5,6 +5,7 @@ import Menu from '../layout/component/Menu'
 import './globals.css'
 import Sidebar from '@/layout/component/Sidebar'
 const inter = Inter({ subsets: ['latin'] })
+import { DarkThemeToggle, Flowbite } from '@flowbite';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -17,20 +18,22 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Providers><Menu />
-
-          <div className='flex justify-between px-4 mx-auto max-w-8xl'>
-            <div className='hidden mb-6 xl:block lg:w-80'>
-              <Sidebar />
+    <Flowbite>
+      <html lang="en">
+        <body className={inter.className}>
+          <Providers><Menu />
+            <DarkThemeToggle />
+            <div className='flex justify-between px-4 mx-auto max-w-8xl'>
+              <div className='hidden mb-6 xl:block lg:w-80'>
+                <Sidebar />
+              </div>
+              <div className='w-full mx-auto'>
+                {children}
+              </div>
             </div>
-            <div className='w-full mx-auto'>
-              {children}
-            </div>
-          </div>
-        </Providers>
-      </body>
-    </html >
+          </Providers>
+        </body>
+      </html >
+    </Flowbite>
   )
 }
