@@ -22,6 +22,8 @@
       "@/*": ["./src/*"],
       "@flowbite": ["./src/components/flowbite"],
       "@flowbite/*": ["./src/components/flowbite/*"],
+      "flowbite-react": ["./src/components/flowbite"],
+      "flowbite-react/*": ["./src/components/flowbite/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

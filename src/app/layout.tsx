@@ -34,3 +34,18 @@ export default function RootLayout({
     </html >
   )
 }
+// 1. 모달
+// 2. alert
+// 3. navi
+// 4. highlight text
+// 5. spinner
+// 6. pagination
+// 7. paper canvas
+// 8. editor / quill
+// 9. select
+
+// 10. picker / Date, Time, Month, Time
+// 11. calendar
+// 12. Toolbar
+// 13. Button
+// 14. address
