@@ -1,12 +1,12 @@
 'use client';
 
 import { Table, Pagination } from 'flowbite-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation'
 
 export default function HoverState(prop) {
     const router = useRouter()
-    const currentPage = prop.searchParams.page | 1
+    const currentPage = Number(prop.searchParams.page)
     return (
         <div>
             <TableExam />
@@ -19,6 +19,25 @@ export default function HoverState(prop) {
     )
 }
 function TableExam() {
+    const [item, setItem] = useState(1);
+    useEffect(() => {
+        window.history.scrollRestoration = 'manual';
+
+        // 페이지 이동 후 저장되어 있던 위치로 스크롤 복원
+        const capItem = sessionStorage.getItem('capture');
+        if (capItem) {
+            // 스크롤 복원 후 저장된 위치 제거
+            setItem(Number(capItem))
+            sessionStorage.removeItem('capture');
+        }
+
+
+        return () => {
+            sessionStorage.setItem(
+                'capture', String(item)
+            );
+        };
+    }, []);
     return (
         <Table hoverable>
             <Table.Head>

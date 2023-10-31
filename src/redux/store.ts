@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "./features/counterSlice";
+import modalReducer from "./features/modalSlice";
 import { userApi } from "./services/userApi";
 import { setupListeners } from "@reduxjs/toolkit/dist/query";
 import { menuApi } from "./services/menuApi";
@@ -7,6 +8,7 @@ import { menuApi } from "./services/menuApi";
 export const store = configureStore({
     reducer: { 
         counterReducer,
+        modalReducer,
         [userApi.reducerPath]: userApi.reducer,
         [menuApi.reducerPath]: menuApi.reducer,
     },

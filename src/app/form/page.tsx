@@ -2,7 +2,7 @@ import { SubmitButton } from '@/components/submit-button'
 
 export default function Page() {
     async function create(formData: FormData) {
-        'use server'
+        // 'use server'
 
         // mutate data
         // revalidate cache
