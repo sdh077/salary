@@ -22,21 +22,21 @@ export default function RootLayout({
     <Flowbite>
       <html lang="en">
         <body className={inter.className}>
-          <Providers>
-            {/* <Menu /> */}
-            {/* <DarkThemeToggle /> */}
-            <div className='flex justify-between px-4 mx-auto max-w-8xl'>
-              <div className='hidden mb-6 xl:block lg:w-80'>
-                {/* <Sidebar /> */}
+            <Providers>
+              {/* <Menu /> */}
+              {/* <DarkThemeToggle /> */}
+              <div className='flex justify-between px-4 mx-auto max-w-8xl'>
+                <div className='hidden mb-6 xl:block lg:w-80'>
+                  {/* <Sidebar /> */}
+                </div>
+                <div className='w-full mx-auto'>
+                  {children}
+                </div>
               </div>
-              <div className='w-full mx-auto'>
-                {children}
-              </div>
-            </div>
-          </Providers>
+            </Providers>
         </body>
-      </html >
         <Script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.17/paper-full.min.js" />
+      </html >
     </Flowbite>
   )
 }

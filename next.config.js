@@ -4,6 +4,9 @@ const name = 'nextjs-paper'
 const path = require('path');
 
 module.exports = {
+  experimental: {
+    serverComponentsExternalPackages: ['jsdom'],
+  },
   eslint: {
     ignoreDuringBuilds: true,
   },
