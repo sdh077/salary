@@ -1,4 +1,4 @@
-import { action } from '@storybook/addon-actions';
+// import { action } from '@storybook/addon-actions';
 import type { Meta, StoryFn } from '@storybook/react';
 import type { DropdownProps } from './Dropdown';
 import { Dropdown } from './Dropdown';
@@ -105,10 +105,10 @@ ItemClickHandler.storyName = 'Item click handlers';
 ItemClickHandler.args = {
   children: (
     <>
-      <Dropdown.Item onClick={action('Dashboard!')}>Dashboard</Dropdown.Item>
+      {/* <Dropdown.Item onClick={action('Dashboard!')}>Dashboard</Dropdown.Item>
       <Dropdown.Item onClick={action('Settings!')}>Settings</Dropdown.Item>
       <Dropdown.Item onClick={action('Earnings!')}>Earnings</Dropdown.Item>
-      <Dropdown.Item onClick={action('Sign out!')}>Sign out</Dropdown.Item>
+      <Dropdown.Item onClick={action('Sign out!')}>Sign out</Dropdown.Item> */}
     </>
   ),
 };

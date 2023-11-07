@@ -6,6 +6,7 @@ import './globals.css'
 import Sidebar from '@/layout/component/Sidebar'
 const inter = Inter({ subsets: ['latin'] })
 import { DarkThemeToggle, Flowbite } from '@flowbite';
+import Script from 'next/script'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -21,11 +22,12 @@ export default function RootLayout({
     <Flowbite>
       <html lang="en">
         <body className={inter.className}>
-          <Providers><Menu />
-            <DarkThemeToggle />
+          <Providers>
+            {/* <Menu /> */}
+            {/* <DarkThemeToggle /> */}
             <div className='flex justify-between px-4 mx-auto max-w-8xl'>
               <div className='hidden mb-6 xl:block lg:w-80'>
-                <Sidebar />
+                {/* <Sidebar /> */}
               </div>
               <div className='w-full mx-auto'>
                 {children}
@@ -34,6 +36,7 @@ export default function RootLayout({
           </Providers>
         </body>
       </html >
+        <Script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.17/paper-full.min.js" />
     </Flowbite>
   )
 }

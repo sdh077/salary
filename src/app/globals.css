@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.fc .fc-timegrid-slot {
+    border-bottom: 0px;
+    height: 3.5em;
+}

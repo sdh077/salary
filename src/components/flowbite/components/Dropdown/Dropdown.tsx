@@ -106,7 +106,7 @@ const Trigger = ({
       {...buttonProps}
       disabled={disabled}
       type="button"
-      ref={refs.setReference as RefCallback<'button'>}
+      // ref={refs.setReference as RefCallback<'button'>}
       {...a11yProps}
     >
       {children}
