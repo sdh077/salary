@@ -1,5 +1,5 @@
 async function getData() {
-    const res = await fetch('http://localhost:3100/api/test');
+    const res = await fetch('http://localhost:5173/api/test');
     // The return value is *not* serialized
     // You can return Date, Map, Set, etc.
 

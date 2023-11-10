@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 export default function DelModal({ info, openModal, setOpenModal }) {
   const router = useRouter()
   const delEvent = async (info) => {
-    await fetch(`http://localhost:3100/api/events/${info.event.id}`, {
+    await fetch(`http://localhost:5173/api/events/${info.event.id}`, {
       method: 'DELETE',
     })
     setOpenModal(false)

@@ -25,14 +25,14 @@ export default function RootLayout({
             <Providers>
               {/* <Menu /> */}
               {/* <DarkThemeToggle /> */}
-              <div className='flex justify-between px-4 mx-auto max-w-8xl'>
-                <div className='hidden mb-6 xl:block lg:w-80'>
+              {/* <div className='flex justify-between px-4 mx-auto max-w-8xl'>
+                <div className='hidden mb-6 xl:block lg:w-80'> */}
                   {/* <Sidebar /> */}
-                </div>
+                {/* </div> */}
                 <div className='w-full mx-auto'>
                   {children}
                 </div>
-              </div>
+              {/* </div> */}
             </Providers>
         </body>
         <Script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.17/paper-full.min.js" />

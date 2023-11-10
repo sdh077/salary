@@ -9,8 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.26.2",
-    "@expo/next-adapter": "^5.0.2",
     "@floating-ui/react": "^0.26.1",
     "@fullcalendar/core": "^6.1.9",
     "@fullcalendar/daygrid": "^6.1.9",
@@ -24,6 +22,7 @@
     "@tanstack/react-query-devtools": "^5.4.2",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.5.1",
+    "@tinymce/tinymce-react": "^4.3.0",
     "@types/next": "^9.0.0",
     "@types/paper": "^0.12.3",
     "autoprefixer": "^10.4.16",

@@ -4,7 +4,7 @@ import FullCalendar from '@fullcalendar/react'
 import interactionPlugin from "@fullcalendar/interaction";
 import timeGridPlugin from '@fullcalendar/timegrid'
 import AddModal from './AddModal';
-import DelModal from './delModal';
+import DelModal from './DelModal';
 
 export default function FC({ events }) {
     const [info, setInfo] = useState(null);

@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 export default function AddModal({ info, openModal, setOpenModal }) {
     const router = useRouter()
     const addEvent = async (info) => {
-        await fetch('http://localhost:3100/api/events', {
+        await fetch('http://localhost:5173/api/events', {
             method: 'POST',
             body: JSON.stringify({
                 title: 'name',
