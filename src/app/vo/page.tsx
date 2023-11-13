@@ -1,16 +1,16 @@
+/**
+ * v0 by Vercel.
+ * @see https://v0.dev/t/L2xiLJAAiqq
+ */
 import Link from "next/link"
-async function getData() {
-    return await fetch('https://jsonplaceholder.typicode.com/todos/1').then(res => res.json())
-}
-export default async function Component() {
-    const data = await getData()
-    const a = await fetch('https://jsonplaceholder.typicode.com/todos/1')
+
+export default function Component() {
     return (
-        <section className="flex flex-col lg:flex-row lg:space-x-6">
-            <header className="flex justify-between items-center px-6 py-4 bg-zinc-900 text-zinc-50">
-                <Link className="flex items-center space-x-2" href="#">
+        <div className="flex flex-col min-h-screen">
+            <header className="px-4 lg:px-6 h-14 flex items-center bg-white dark:bg-gray-800">
+                <Link className="flex items-center justify-center" href="#">
                     <svg
-                        className=" h-10 w-10"
+                        className=" h-6 w-6"
                         fill="none"
                         height="24"
                         stroke="currentColor"
@@ -21,86 +21,89 @@ export default async function Component() {
                         width="24"
                         xmlns="http://www.w3.org/2000/svg"
                     >
-                        <path d="M15 11h.01" />
-                        <path d="M11 15h.01" />
-                        <path d="M16 16h.01" />
-                        <path d="m2 16 20 6-6-20A20 20 0 0 0 2 16" />
-                        <path d="M5.71 17.11a17.04 17.04 0 0 1 11.4-11.4" />
+                        <path d="m18 7 4 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9l4-2" />
+                        <path d="M14 22v-4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v4" />
+                        <path d="M18 22V5l-6-3-6 3v17" />
+                        <path d="M12 7v5" />
+                        <path d="M10 9h4" />
                     </svg>
-                    <h1 className="text-3xl">Food Blog</h1>
+                    <span className="ml-2 text-xl font-semibold">Our Church</span>
                 </Link>
-                <nav className="hidden lg:flex space-x-6">
-                    <Link className="text-lg hover:text-zinc-300" href="#">
-                        Home
-                    </Link>
-                    <Link className="text-lg hover:text-zinc-300" href="#">
-                        Recipes
-                    </Link>
-                    <Link className="text-lg hover:text-zinc-300" href="#">
-                        Categories
-                    </Link>
-                    <Link className="text-lg hover:text-zinc-300" href="#">
+                <nav className="ml-auto flex gap-4 sm:gap-6">
+                    <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
                         About
+                    </Link>
+                    <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
+                        Services
+                    </Link>
+                    <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
+                        Events
+                    </Link>
+                    <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
+                        Contact
                     </Link>
                 </nav>
             </header>
-            <main className="flex-1 lg:px-12 py-6 space-y-6">
-                <article className="border p-6 rounded-lg space-y-4">
+            <main className="flex-1 container mx-auto">
+                <section className="relative">
                     <img
-                        alt="Featured Image"
-                        className="object-cover rounded-md"
-                        height="200"
-                        src="/placeholder.svg"
+                        alt="Church banner"
+                        className="object-cover w-full h-72"
+                        height="780"
+                        src="/1.jpg"
                         style={{
-                            aspectRatio: "350/200",
+                            aspectRatio: "1920/780",
                             objectFit: "cover",
                         }}
-                        width="350"
+                        width="1920"
                     />
-                    <h2 className="text-2xl font-semibold">{data.title}</h2>
-                    <p className="text-sm text-zinc-500 dark:text-zinc-400">Posted by John Doe on November 10, 2023</p>
-                    <p className="text-base text-zinc-700 dark:text-zinc-200">
-                        Pasta is a type of food typically made from an unleavened dough of wheat...
+                    <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-5xl font-bold text-center">
+                        Welcome to Our Church
+                    </h1>
+                </section>
+                <section className="p-4 lg:p-6">
+                    <h2 className="text-3xl font-bold">About Us</h2>
+                    <p className="mt-4 text-gray-600 dark:text-gray-400">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum elementum varius leo, in tincidunt mi.
+                        Integer feugiat felis id libero hendrerit, non luctus quam tristique.
                     </p>
-                </article>
+                </section>
+                <section className="p-4 lg:p-6">
+                    <h2 className="text-3xl font-bold">Upcoming Events</h2>
+                    <div className="grid gap-4 mt-4 sm:grid-cols-2 lg:grid-cols-3">
+                        <div className="border rounded-md p-4">
+                            <h3 className="text-xl font-semibold">Event 1</h3>
+                            <p className="mt-2 text-gray-600 dark:text-gray-400">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            </p>
+                        </div>
+                        <div className="border rounded-md p-4">
+                            <h3 className="text-xl font-semibold">Event 2</h3>
+                            <p className="mt-2 text-gray-600 dark:text-gray-400">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            </p>
+                        </div>
+                        <div className="border rounded-md p-4">
+                            <h3 className="text-xl font-semibold">Event 3</h3>
+                            <p className="mt-2 text-gray-600 dark:text-gray-400">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            </p>
+                        </div>
+                    </div>
+                </section>
             </main>
-            <aside className="lg:w-80 p-6 space-y-6">
-                <div className="border p-4 rounded-lg">
-                    <h3 className="text-lg font-medium mb-2">Search</h3>
-                    <input
-                        className="w-full px-3 py-2 border rounded-md text-base text-zinc-700 dark:text-zinc-200"
-                        placeholder="Search..."
-                        type="search"
-                    />
-                </div>
-                <div className="border p-4 rounded-lg">
-                    <h3 className="text-lg font-medium mb-2">Popular Categories</h3>
-                    <ul className="space-y-1">
-                        <li>
-                            <Link
-                                className="text-base text-zinc-700 dark:text-zinc-200 hover:text-zinc-500 dark:hover:text-zinc-100"
-                                href="#"
-                            >
-                                Pasta
-                            </Link>
-                        </li>
-                    </ul>
-                </div>
-                <div className="border p-4 rounded-lg">
-                    <h3 className="text-lg font-medium mb-2">Recent Posts</h3>
-                    <ul className="space-y-1">
-                        <li>
-                            <Link
-                                className="text-base text-zinc-700 dark:text-zinc-200 hover:text-zinc-500 dark:hover:text-zinc-100"
-                                href="#"
-                            >
-                                Delicious Pasta
-                            </Link>
-                        </li>
-                    </ul>
-                </div>
-            </aside>
-        </section>
+            <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t bg-white dark:bg-gray-800">
+                <p className="text-xs text-gray-600 dark:text-gray-400">© 2023 Our Church. All rights reserved.</p>
+                <nav className="sm:ml-auto flex gap-4 sm:gap-6">
+                    <Link className="text-xs hover:underline underline-offset-4" href="#">
+                        Terms of Service
+                    </Link>
+                    <Link className="text-xs hover:underline underline-offset-4" href="#">
+                        Privacy
+                    </Link>
+                </nav>
+            </footer>
+        </div>
     )
 }
 

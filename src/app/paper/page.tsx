@@ -2,6 +2,7 @@
 import dynamic from "next/dynamic";
 import Script from "next/script";
 import { useRef, useState } from "react";
+import bo from './bo';
 export default function Page() {
     const ref = useRef(null)
     const [text, setText] = useState('')
@@ -10,14 +11,10 @@ export default function Page() {
         console.log(Microdraw)
         const canvas = ref.current;
         paper.setup(canvas);
-        const Path = paper.Path
-        const Point = paper.Point
-        const Group = paper.Group
-        const view = paper.view
-        const PointText = paper.PointText
-        const Color = paper.Color
-        const Rectangle = paper.Rectangle
-
+        paper.install(window);
+        const { Path, Point, Group, view, PointText, Color, Rectangle } = paper;
+        const bo = (await import('./bo')).default
+        bo()
 
 
         var path = new Path();
@@ -50,19 +47,98 @@ export default function Page() {
         // This function is called whenever the user
         // clicks the mouse in the view:
         function onMouseDown(event) {
-            // Add a segment to the path at the position of the mouse:
-            myPath.add(event.point);
-
-            let point = event.point
-            let hitResult = paper.project.hitTest(point, hitOptions);
-            console.log(hitResult)
         }
 
-        // paper.view.onMouseDown = onMouseDown
-        view.onMouseDrag = (event) => {
-            console.log('1')
-            myPath.add(event.point);
+        view.onMouseDown = onMouseDown
+        // view.onMouseDrag = (event) => {
+        //     myCircle.position = event.point
+        // }
+        view.onMouseMove = (event) => {
+            myCircle.position = event.point
         }
+        function Ball(r, p, v) {
+            this.radius = r;
+            this.x=1;
+            this.y=1;
+            this.point = p;
+            this.vector = v;
+            this.maxVec = 15;
+            this.numSegment = Math.floor(r / 3 + 2);
+            this.boundOffset = [];
+            this.boundOffsetBuff = [];
+            this.sidePoints = [];
+            this.path = new Path({
+                fillColor: {
+                    hue: Math.random() * 360,
+                    saturation: 1,
+                    brightness: 1
+                },
+                blendMode: 'lighter'
+            });
+            this.myCircle = new Path.Circle(new Point(this.point), this.radius);
+            this.myCircle.fillColor = new Color(0, 0, 1);
+        }
+        Ball.prototype = {
+            iterate: function () {
+                this.checkBorders();
+                this.myCircle.position.x += this.x
+                this.myCircle.position.y += this.y
+                // this.updateShape();
+            },
+            checkBorders: function () {
+                var size = view.size;
+                if (this.myCircle.position.x < 0)
+                    this.x = 2
+                if (this.myCircle.position.x > size.width)
+                    this.x = -2;
+                if (this.myCircle.position.y < 0)
+                    this.y = 2;
+                if (this.myCircle.position.y > size.height)
+                    this.y = -2;
+            },
+
+            updateShape: function () {
+                // var segments = this.path.segments;
+                // for (var i = 0; i < this.numSegment; i++)
+                //     segments[i].point = this.getSidePoint(i);
+
+                this.path.smooth();
+                for (var i = 0; i < this.numSegment; i++) {
+                    if (this.boundOffset[i] < this.radius / 4)
+                        this.boundOffset[i] = this.radius / 4;
+                    var next = (i + 1) % this.numSegment;
+                    var prev = (i > 0) ? i - 1 : this.numSegment - 1;
+                    var offset = this.boundOffset[i];
+                    offset += (this.radius - offset) / 15;
+                    offset += ((this.boundOffset[next] + this.boundOffset[prev]) / 2 - offset) / 3;
+                    this.boundOffsetBuff[i] = this.boundOffset[i] = offset;
+                }
+            },
+
+            getSidePoint: function (index) {
+                return this.point + this.sidePoints[index] * this.boundOffset[index];
+            },
+
+            updateBounds: function () {
+                for (var i = 0; i < this.numSegment; i++)
+                    this.boundOffset[i] = this.boundOffsetBuff[i];
+            }
+        }
+
+        const balls = [];
+        var numBalls = 18;
+        for (var i = 0; i < numBalls; i++) {
+            const ran = Point.random()
+            var position = [ran.x * view._viewSize._width, ran.y * view._viewSize._height]
+            var radius = Math.random() * 60 + 60;
+            balls.push(new Ball(5, position, radius))
+        }
+        function onFrame() {
+            for (const ball of balls) {
+                ball.iterate();
+            }
+        }
+        view.onFrame = onFrame
     }
     return (
         <>
