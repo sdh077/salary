@@ -1,21 +1,15 @@
 'use client'
-import Script from 'next/script'
-
-export default function page() {
+import naver from 'naver-id-login'
+//npm i naver-id-login
+export default async function page() {
+    const login = async () => {
+        const clientId = process.env.NEXT_PUBLIC_NAVER_CLIENT_ID
+        const callbackUrl = 'http://localhost:5173/naver/callback'
+        await naver.login(clientId, callbackUrl)
+    }
     return (
         <>
-            <div id="naver_id_login"></div>
-            <Script src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
-                onReady={() => {
-                    const nil = new naver_id_login("9zIJ2rGFfyQp5ntVXX8x", "http://localhost:5173/naver/callback");
-                    const state = nil.getUniqState();
-                    nil.setButton("white", 2, 40);
-                    nil.setDomain("http://localhost:5173/naver/login");
-                    nil.setState(state);
-                    nil.setPopup();
-                    nil.init_naver_id_login();
-                }}
-            />
+            <div id="naver_id_login" onClick={login}></div>
         </>
     )
 }
