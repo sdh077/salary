@@ -24,7 +24,7 @@ export default function Nmap() {
             <Script
                 strategy="afterInteractive"
                 type="text/javascript"
-                src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=2eopkzemiq`}
+                src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_NC_ID}`}
                 onReady={initializeMap}
             />
             <div id='map' style={{ width: '500px', height: '500px' }} />
