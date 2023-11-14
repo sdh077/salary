@@ -1,7 +1,7 @@
 'use client'
 import Script from 'next/script'
-
-export default function page() {
+export default function Npay() {
+    
     return (
         <>
             <input type="button" id="naverPayBtn" value="네이버페이 결제 버튼"></input>

@@ -1,5 +1,5 @@
 async function getData() {
-    const res = await fetch('http://localhost:5173/api/test');
+    const res = await fetch('https://stgmanage.dtverse.net/api/common/menu-list');
     // The return value is *not* serialized
     // You can return Date, Map, Set, etc.
 
@@ -10,12 +10,21 @@ async function getData() {
 
     return res.json()
 }
-function Child({ data }) {
-    console.log(data);
-    return <><div>sad</div></>
+function Child({ menu, menus }) {
+    return <>
+        <>
+            {menu.menuNm}
+            {menus.filter(m => m.upperMenuId === menu.menuId).map(m =>
+                <div key={m.menuId}>---<Child menu={m} menus={menus}/></div>
+            )}
+        </></>
 }
 export default async function Page() {
     const data = await getData()
-    return <Child data={data} />;
+    return <div>
+        {data.data.filter(m => m.upperMenuId === null).map(menu =>
+            <Child menu={menu} key={menu.menuId} menus={data.data} />
+        )}
+    </div>
 }
 

@@ -19,7 +19,7 @@ const Modal = () => {
       // 여기에 확인 버튼을 눌렀을 때 실행하고자 하는 함수를 넣으면 됩니다.
     };
 
-    dispatch(openModal({ content, callback: callbackFunction, modalType: 2 }));
+    dispatch(openModal({ content, callback: callbackFunction, modalType: 1 }));
   };
 
   return (
