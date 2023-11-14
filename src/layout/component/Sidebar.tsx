@@ -43,27 +43,27 @@ export default function DefaultSidebar() {
                         </p>
                     </Sidebar.Item>
                     <Sidebar.Item
-                        href="#"
+                        href="/redux"
                         icon={HiShoppingBag}
                     >
                         <p>
-                            Products
+                            redux
                         </p>
                     </Sidebar.Item>
                     <Sidebar.Item
-                        href="#"
+                        href="/capture"
                         icon={HiArrowSmRight}
                     >
                         <p>
-                            Sign In
+                            capture
                         </p>
                     </Sidebar.Item>
                     <Sidebar.Item
-                        href="#"
+                        href="/tiny"
                         icon={HiTable}
                     >
                         <p>
-                            Sign Up
+                            editor
                         </p>
                     </Sidebar.Item>
                 </Sidebar.ItemGroup>

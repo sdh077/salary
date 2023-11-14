@@ -29,7 +29,7 @@ export default function RootLayout({
       <html lang="en">
         <body className={inter.className}>
           <Providers>
-            {/* <Menu /> */}
+            <Menu />
             {/* <DarkThemeToggle /> */}
             <div className='flex justify-between px-4 mx-auto max-w-8xl'>
                 <div className='hidden mb-6 xl:block lg:w-80'>
