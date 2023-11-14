@@ -7,8 +7,6 @@ export default function Page() {
     const ref = useRef(null)
     const [text, setText] = useState('')
     const fn = async () => {
-        const Microdraw = (await import('./Microdraw')).default
-        console.log(Microdraw)
         const canvas = ref.current;
         paper.setup(canvas);
         paper.install(window);
