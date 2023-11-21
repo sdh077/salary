@@ -9,62 +9,61 @@ export default function DefaultSidebar() {
             <Sidebar.Items>
                 <Sidebar.ItemGroup>
                     <Sidebar.Item
-                        href="#"
+                        href="/modal"
                         icon={HiChartPie}
                     >
                         <p>
-                            Dashboard
+                            Modal
                         </p>
                     </Sidebar.Item>
                     <Sidebar.Item
-                        href="#"
+                        href="/swr"
                         icon={HiViewBoards}
-                        label="Pro"
                         labelColor="dark"
                     >
                         <p>
-                            Kanban
+                            swr
                         </p>
                     </Sidebar.Item>
                     <Sidebar.Item
-                        href="#"
+                        href="/paper"
                         icon={HiInbox}
                         label="3"
                     >
                         <p>
-                            Inbox
+                            paper
                         </p>
                     </Sidebar.Item>
                     <Sidebar.Item
-                        href="#"
+                        href="/pay"
                         icon={HiUser}
                     >
                         <p>
-                            Users
+                            카카오 네이버
                         </p>
                     </Sidebar.Item>
                     <Sidebar.Item
-                        href="#"
+                        href="/redux"
                         icon={HiShoppingBag}
                     >
                         <p>
-                            Products
+                            redux
                         </p>
                     </Sidebar.Item>
                     <Sidebar.Item
-                        href="#"
+                        href="/capture"
                         icon={HiArrowSmRight}
                     >
                         <p>
-                            Sign In
+                            capture
                         </p>
                     </Sidebar.Item>
                     <Sidebar.Item
-                        href="#"
+                        href="/tiny"
                         icon={HiTable}
                     >
                         <p>
-                            Sign Up
+                            editor
                         </p>
                     </Sidebar.Item>
                 </Sidebar.ItemGroup>

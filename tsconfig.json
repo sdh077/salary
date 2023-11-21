@@ -13,19 +13,34 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "allowImportingTsExtensions": true,
     "plugins": [
       {
         "name": "next"
       }
     ],
     "paths": {
-      "@/*": ["./src/*"],
-      "@flowbite": ["./src/components/flowbite"],
-      "@flowbite/*": ["./src/components/flowbite/*"],
-      "flowbite-react": ["./src/components/flowbite"],
-      "flowbite-react/*": ["./src/components/flowbite/*"],
-      "@utils": ["./src/utils"],
-      "@utils/*": ["./src/utils/*"],
+      "@/*": [
+        "./src/*"
+      ],
+      "@flowbite": [
+        "./src/components/flowbite"
+      ],
+      "@flowbite/*": [
+        "./src/components/flowbite/*"
+      ],
+      "flowbite-react": [
+        "./src/components/flowbite"
+      ],
+      "flowbite-react/*": [
+        "./src/components/flowbite/*"
+      ],
+      "@utils": [
+        "./src/utils"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/(main)/tt.js"],

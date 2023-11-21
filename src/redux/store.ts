@@ -1,12 +1,15 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, createSerializableStateInvariantMiddleware, isPlain } from "@reduxjs/toolkit";
 import counterReducer from "./features/counterSlice";
 import modalReducer from "./features/modalSlice";
+import userReducer from "./features/userSlice";
+
 import { userApi } from "./services/userApi";
 import { setupListeners } from "@reduxjs/toolkit/dist/query";
 import { menuApi } from "./services/menuApi";
 
+
 export const store = configureStore({
-    reducer: { 
+    reducer: {
         counterReducer,
         modalReducer,
         [userApi.reducerPath]: userApi.reducer,
@@ -14,7 +17,8 @@ export const store = configureStore({
     },
     devTools: process.env.NODE_ENV !== "production",
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware({}).concat([userApi.middleware]).concat([menuApi.middleware]),
+        getDefaultMiddleware({ serializableCheck: false }).concat([userApi.middleware]).concat([menuApi.middleware])
+    ,
 });
 setupListeners(store.dispatch); // refetchOnFocus Active
 
