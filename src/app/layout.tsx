@@ -34,9 +34,6 @@ export default function RootLayout({
             <div className='container mx-auto'>
               {children}
             </div>
-            <div className='w-full mx-auto'>
-              {children}
-            </div>
             <Modal />
           </Providers>
         </body>
