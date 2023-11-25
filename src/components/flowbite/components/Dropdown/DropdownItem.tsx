@@ -40,7 +40,7 @@ export const DropdownItem = <T extends ElementType = 'button'>({
   return (
     <li role="menuitem" className={theme.container}>
       <ButtonBase
-        ref={ref as RefCallback<T>}
+        ref={ref as unknown as RefCallback<T>}
         className={twMerge(theme.base, className)}
         {...theirProps}
         {...getItemProps({
